@@ -13,7 +13,6 @@ Diagnostics in the automotive context involves identifying the root cause of veh
 Automotive diagnostics can be categorized into two main types: onboard diagnostics (OBD) and offboard diagnostics.
 
 - **Onboard Diagnostics (OBD):** OBD refers to the ability to read vehicle information while the vehicle is running or in the engine-on position. It allows for real-time communication with the vehicle's electronic control units (ECUs) using onboard diagnostic protocols.
-
 - **Offboard Diagnostics:** Offboard diagnostics, exemplified by Unified Diagnostic Services (UDS), involves communicating with ECUs when the vehicle is not running. This typically occurs in a garage or service center, where the vehicle's ECUs are detached for analysis and troubleshooting.
 
 **3. Levels of Expertise:**
@@ -21,9 +20,7 @@ Automotive diagnostics can be categorized into two main types: onboard diagnosti
 Expertise in automotive diagnostics varies across different levels, ranging from beginner to expert.
 
 - **Beginner Level:** At this level, individuals should have a basic understanding of diagnostic services, service IDs, subfunctions, and theoretical knowledge of automotive diagnostics.
-
 - **Moderate Level:** Moderate-level expertise entails working knowledge of 8 to 10 diagnostic services, along with theoretical understanding of at least 20 services.
-
 - **Expert Level:** Experts possess extensive experience and knowledge of over 22 diagnostic services, complemented by a thorough understanding of the remaining services. They are adept at applying diagnostic tools and methodologies to troubleshoot complex issues effectively.
 
 **Conclusion:**

@@ -1,7 +1,5 @@
 # UDS - Basic Terms
 
-**Introduction:**
-
 Vehicle diagnostics have evolved significantly over the years, transitioning from simple observation and manual inspection to complex digital analysis using diagnostic tools. This comprehensive tutorial aims to elucidate this evolution, outlining the differences between olden days' garage practices and modern diagnostic techniques. By delving into the processes, terminology, and advancements, readers will gain a deeper understanding of how vehicle issues are identified, diagnosed, and resolved in contemporary automotive repair.
 
 **1. Olden Days Garage Practices:**
