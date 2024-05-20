@@ -1,70 +1,112 @@
-# UDS Reset ECU (0x11)
 
-**Purpose:**
-The Reset ECU service (0x11) in the Unified Diagnostic Services (UDS) protocol is utilized to restart the Electronic Control Unit (ECU) within a vehicle or any other applicable system. This service provides a means to initiate a reset operation on the targeted ECU, allowing for various forms of restart procedures.
+## Comprehensive Tutorial on ECU Reset (0x11) Service
 
-**Introduction:**
-Before executing the reset operation on the ECU, the ECU sends a positive response to the tester to acknowledge the request. Upon successful execution of the reset, the server activates the default session. It's important to note that during the reset procedure, the ECU will not accept any other request messages nor send any response messages.
+### Introduction
 
-**Sub-functions:**
-The Reset ECU service supports various sub-functions to enable different types of reset operations. These sub-functions are enumerated below:
+The Electronic Control Unit (ECU) Reset service (0x11) is a critical diagnostic service used to restart the ECU. This service ensures that the ECU can be reset in a controlled manner, allowing for proper initialization of the system. The ECU sends a positive response to the tester before the reset is executed. After a successful reset, the ECU activates the default session. During the reset process, the ECU does not accept any other request messages or send any response messages.
 
-| Enum Values | Description                    |
-|-------------|--------------------------------|
-| 0x00        | SAE Reserved                   |
-| 0x01        | Hard Reset                     |
-| 0x02        | Key Off On Reset               |
-| 0x03        | Soft Reset                     |
-| 0x04        | Enable Rapid Power Shut Down   |
-| 0x05        | Disable Rapid Power Shut Down  |
-| 0x06 to 0x3F| ISO SAE Reserved               |
-| 0x40 to 0x5F| OEM Specific                   |
-| 0x60 to 0x7E| Supplier Specific              |
-| 0x7F        | SAE Reserved                   |
+### Sub-functions of ECU Reset
 
-**Request Frame:**
-The request frame for the Reset ECU service consists of the following:
+The ECU Reset service supports various sub-functions, each identified by an enum value:
 
-1. Service Identifier (0x11)
-2. Sub-function (Reset)
+| Enum Value | Description                   |
+| ---------- | ----------------------------- |
+| 0x00       | SAE Reserved                  |
+| 0x01       | Hard Reset                    |
+| 0x02       | Key Off On Reset              |
+| 0x03       | Soft Reset                    |
+| 0x04       | Enable Rapid Power Shut Down  |
+| 0x05       | Disable Rapid Power Shut Down |
+| 0x06-0x3F  | ISO SAE Reserved              |
+| 0x40-0x5F  | OEM Specific                  |
+| 0x60-0x7E  | Supplier Specific             |
+| 0x7F       | SAE Reserved                  |
 
-**Positive Response Frame:**
-Upon successful execution of the reset operation, the positive response frame contains:
+### Request and Response Frames
 
-1. Service Identifier (0x11)
-2. Sub-function (Reset)
+- **Request Frame:**
 
-**Negative Response Frame:**
-In case of failure or error during the reset procedure, the negative response frame includes:
+  1. Service Id (0x11)
+  2. Sub-function (Reset)
+- **Positive Response Frame:**
 
-1. Negative Response Identifier (0x7F)
-2. Service Identifier (0x11)
-3. Negative Response Code (NRC)
+  1. Service Id (0x51)
+  2. Sub-function (Reset)
+- **Negative Response Frame:**
 
-**Assumption Scenario:**
-In a typical scenario, a tester utilizes the Reset ECU service to initiate a reset on the ECU for various reasons. These reasons can vary and are not limited to any specific conditions. For example, the tester might initiate a reset to resolve software issues, clear error codes, or perform maintenance tasks.
+  1. Negative Response (0x7F)
+  2. Service Id (0x11)
+  3. NRC Code
 
-**Notes:**
-- The reset operation might have implications on the functionality of the ECU and should be performed with caution.
-- It's crucial to adhere to manufacturer guidelines and specifications when utilizing the Reset ECU service.
-- The availability and behavior of sub-functions may vary depending on the implementation and the specific ECU being targeted.
-- Proper error handling mechanisms should be in place to deal with negative responses and unexpected behavior during the reset procedure.
-- The Reset ECU service does not support data parameters in the request message, indicating that the reset operation is generally a command without additional data payload.
+### Sub-function Details
 
+#### 1. Hard Reset (0x01)
 
-**1. Hard Reset (0x01):**
-The Hard Reset sub-function initiates a reset on the ECU by simulating the power-on or start-up condition. This reset is akin to the ECU being disconnected from its power supply (e.g., battery) and then reconnected. Upon execution, both volatile and non-volatile memory within the ECU, along with other electronic sub-components, are initialized as part of the power-up sequence.
+- Simulates a power-on or start-up condition.
+- Resets both volatile and non-volatile memory.
+- Used when the ECU needs to reinitialize all components.
 
-**2. Key Off On (0x02):**
-This sub-function replicates the action of the vehicle driver turning the ignition key off and then back on. It simulates a key-off-on sequence by interrupting the power supply to the ECU. The exact action performed during this reset condition can vary based on implementation requirements and is not strictly defined by standards. Typically, values stored in non-volatile memory locations are preserved, while volatile memory is initialized.
+#### 2. Key Off On Reset (0x02)
 
-**3. Soft Reset (0x03):**
-The Soft Reset sub-function triggers an immediate restart of the application running on the server. Unlike hard resets, soft resets are performed through software rather than physical means. Implementation specifics for this reset are not standardized and can vary. Typically, a soft reset involves restarting the application without re-initializing previously learned configuration data, adaptive factors, and other long-term adjustments.
+- Simulates the driver turning the ignition key off and back on.
+- Typically preserves non-volatile memory and initializes volatile memory.
+- The specific implementation may vary.
 
-**4. Enable Rapid Power Shutdown (0x04):**
-Enabling Rapid Power Shutdown requests the server to activate and execute a rapid power shutdown function. This function is executed immediately after the key/ignition is switched off. During the execution of the power down function, the server transitions, either directly or after a defined standby time, to sleep mode. It's essential for the client not to send any request messages during this time to avoid disrupting the rapid power shutdown function. Note that this sub-function is only applicable to servers supporting a standby mode.
+#### 3. Soft Reset (0x03)
 
-**5. Disable Rapid Power Shutdown (0x05):**
-The Disable Rapid Power Shutdown sub-function requests the server to deactivate the previously enabled "rapid power shutdown" function. This is done to disable the rapid power shutdown functionality, which might have been enabled using the Enable Rapid Power Shutdown sub-function.
+- Restarts the application without reinitializing previously learned data.
+- Typically used to restart the software while maintaining adaptive data.
 
-These sub-functions provide a range of options for resetting the ECU, each tailored to specific requirements and conditions. The choice of sub-function depends on the desired outcome of the reset operation and the capabilities of the server and ECU involved.
+#### 4. Enable Rapid Power Shut Down (0x04)
+
+- Enables the server to perform a rapid power shut down after the ignition is switched off.
+- Transitions the server to sleep mode after a defined stand-by time.
+
+#### 5. Disable Rapid Power Shut Down (0x05)
+
+- Disables the previously enabled rapid power shut down function.
+
+### Example Scenario
+
+A tester needs to reset the ECU to clear Diagnostic Trouble Codes (DTCs) after fixing issues such as brake failure or camera lens adjustment. The ECU Reset service is used to ensure that both volatile and non-volatile memory is cleared and the ECU reinitializes correctly.
+
+### List of Negative Response Codes (NRCs)
+
+| NRC Code | Description                |
+| -------- | -------------------------- |
+| 0x12     | Sub-function Not Supported |
+| 0x13     | Incorrect Message Length   |
+| 0x22     | Conditions Not Correct     |
+| 0x33     | Security Access Denied     |
+
+- **Sub-function Not Supported (0x12):** Sent if the tester requests an unsupported sub-function.
+- **Incorrect Message Length (0x13):** Sent if the request message length is incorrect.
+- **Conditions Not Correct (0x22):** Sent if the server conditions are not met (e.g., engine should be OFF for an engine management ECU reset).
+- **Security Access Denied (0x33):** Sent if the service is requested without unlocking security access.
+
+### Sequence Diagram
+
+```plantuml
+@startuml
+participant Tester
+participant ECU
+
+Tester -> ECU: Request ECU Reset (0x11, Sub-function)
+ECU -> Tester: Positive Response (0x51, Sub-function)
+note right of ECU: ECU performs reset
+Tester -> ECU: No request messages
+note right of ECU: ECU does not send any response messages
+note right of ECU: ECU reinitializes and activates default session
+
+alt Negative Response
+    Tester -> ECU: Request ECU Reset with error
+    ECU -> Tester: Negative Response (0x7F, 0x11, NRC)
+end
+@enduml
+```
+
+This sequence diagram illustrates the interaction between the tester and the ECU during the reset process. It shows how the ECU responds positively before executing the reset and handles negative responses in case of errors.
+
+### Conclusion
+
+The ECU Reset service (0x11) is essential for ensuring proper initialization and reinitialization of the ECU. Understanding the different sub-functions and handling various scenarios, including negative responses, is crucial for effective ECU management. This comprehensive tutorial should provide a clear understanding of how to utilize the ECU Reset service in various diagnostic and operational contexts.
