@@ -1,15 +1,15 @@
 
-### Unified Diagnostic Services (UDS)
+# Unified Diagnostic Services (UDS)
 
-#### Introduction
+## Introduction
 
 Welcome to the detailed course on Unified Diagnostics Service (UDS). This session will provide an in-depth understanding of UDS, its importance in modern vehicle diagnostics, and how it functions.
 
-#### What is Unified Diagnostic Services (UDS)?
+## What is Unified Diagnostic Services (UDS)?
 
 Unified Diagnostic Services (UDS) is a standardized communication protocol defined by the ISO 14229 standard. It is used for diagnosing and reprogramming automotive ECUs (Electronic Control Units). UDS standardizes the communication between diagnostic tools and ECUs, ensuring consistent and accurate diagnostic processes.
 
-#### Importance of UDS
+## Importance of UDS
 
 1. **Standardization:**
    - UDS provides a uniform protocol that all vehicle manufacturers and diagnostic tool providers follow, ensuring compatibility and reliability.
@@ -20,7 +20,7 @@ Unified Diagnostic Services (UDS) is a standardized communication protocol defin
 4. **Efficiency:**
    - Reduces diagnostic time and increases the efficiency of repair and maintenance processes.
 
-#### UDS Communication Model
+## UDS Communication Model
 
 The UDS communication model involves a client-server architecture:
 
@@ -29,7 +29,7 @@ The UDS communication model involves a client-server architecture:
 - **Server (ECU):**
   - The vehicle’s control unit that receives requests and sends responses.
 
-#### UDS Services
+## UDS Services
 
 UDS defines a range of diagnostic services, each identified by a unique Service ID. These services are categorized based on their functionality:
 
@@ -76,7 +76,7 @@ UDS defines a range of diagnostic services, each identified by a unique Service 
    - **0x37: Request Transfer Exit**
      - Concludes the data transfer process.
 
-#### UDS Service Structure
+## UDS Service Structure
 
 Each UDS service request consists of:
 
@@ -93,7 +93,7 @@ For example, a request to read data by identifier (Service ID 0x22) may look lik
   - 0x22: Service ID for Read Data by Identifier.
   - 0xF1 0x90: Identifier for the specific data to be read.
 
-#### Example: Diagnostic Session Control (Service ID: 0x10)
+## Example: Diagnostic Session Control (Service ID: 0x10)
 
 1. **Start Diagnostic Session:**
    - **Request:** 0x10 0x01
@@ -103,7 +103,7 @@ For example, a request to read data by identifier (Service ID 0x22) may look lik
      - 0x50: Positive response for Diagnostic Session Control.
      - 0x01: Echoes the sub-function.
 
-#### Example: Reading DTC Information (Service ID: 0x19)
+## Example: Reading DTC Information (Service ID: 0x19)
 
 1. **Read All DTCs:**
    - **Request:** 0x19 0x02
@@ -114,7 +114,7 @@ For example, a request to read data by identifier (Service ID 0x22) may look lik
      - 0x02: Echoes the sub-function.
      - [DTC Data]: List of DTCs retrieved from the ECU.
 
-#### Error Handling in UDS
+## Error Handling in UDS
 
 UDS uses Negative Response Codes (NRCs) to indicate errors or issues with requests. Common NRCs include:
 
@@ -127,7 +127,7 @@ UDS uses Negative Response Codes (NRCs) to indicate errors or issues with reques
 - **0x31: Request Out of Range**
   - The request is out of the allowable range.
 
-#### Practical Application of UDS
+## Practical Application of UDS
 
 UDS is crucial for modern automotive diagnostics and maintenance. Technicians use UDS-compatible diagnostic tools to:
 
@@ -142,7 +142,7 @@ UDS is crucial for modern automotive diagnostics and maintenance. Technicians us
 5. **Maintain Performance:**
    - Perform routine checks and calibrations to maintain vehicle performance.
 
-#### Conclusion
+## Conclusion
 
 Unified Diagnostic Services (UDS) represents a standardized approach to vehicle diagnostics, enabling precise, efficient, and safe maintenance of modern vehicles. By understanding and applying UDS protocols, technicians can ensure the reliability and performance of automotive systems.
 
