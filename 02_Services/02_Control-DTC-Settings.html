@@ -1,0 +1,267 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Control DTC Settings</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Unified Diagnostic Services</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../01_UDS/01_Introduction.html"><strong aria-hidden="true">1.1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../01_UDS/02_Terms.html"><strong aria-hidden="true">1.2.</strong> Terms</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Services</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../02_Services/01_Diagnostic-Sessions-Control.html"><strong aria-hidden="true">2.1.</strong> Diagnostic Session Control</a></li><li class="chapter-item expanded "><a href="../02_Services/02_Control-DTC-Settings.html" class="active"><strong aria-hidden="true">2.2.</strong> Control DTC Settings</a></li><li class="chapter-item expanded "><a href="../02_Services/03_ECU-Reset.html"><strong aria-hidden="true">2.3.</strong> ECU Reset</a></li><li class="chapter-item expanded "><a href="../02_Services/04_Security-Access.html"><strong aria-hidden="true">2.4.</strong> Security Access</a></li><li class="chapter-item expanded "><a href="../02_Services/05_Read-Data-by-Identifier.html"><strong aria-hidden="true">2.5.</strong> Read Data By Identifier</a></li><li class="chapter-item expanded "><a href="../02_Services/06_Write-Data-by-Identifier.html"><strong aria-hidden="true">2.6.</strong> Write Data By Identifier</a></li><li class="chapter-item expanded "><a href="../02_Services/07_Read-Memory-by-Address.html"><strong aria-hidden="true">2.7.</strong> Read Memory by Address</a></li><li class="chapter-item expanded "><a href="../02_Services/08_Write-Memory-by-Address.html"><strong aria-hidden="true">2.8.</strong> Write Memory By Address</a></li><li class="chapter-item expanded "><a href="../02_Services/10_Tester-Present.html"><strong aria-hidden="true">2.9.</strong> Tester Present</a></li><li class="chapter-item expanded "><a href="../02_Services/11_Communication-Control.html"><strong aria-hidden="true">2.10.</strong> Communication Control</a></li><li class="chapter-item expanded "><a href="../02_Services/12_Read-Scaling-Data-by-Identifier.html"><strong aria-hidden="true">2.11.</strong> Read Scaling Data By Identifier</a></li><li class="chapter-item expanded "><a href="../02_Services/13_Request-File-Transfer.html"><strong aria-hidden="true">2.12.</strong> Request File Transfer</a></li><li class="chapter-item expanded "><a href="../02_Services/14_Request-Download.html"><strong aria-hidden="true">2.13.</strong> Request Download</a></li><li class="chapter-item expanded "><a href="../02_Services/15_Request-Upload.html"><strong aria-hidden="true">2.14.</strong> Request Upload</a></li><li class="chapter-item expanded "><a href="../02_Services/16_Request-Data-Transfer.html"><strong aria-hidden="true">2.15.</strong> Request Data Transfer</a></li><li class="chapter-item expanded "><a href="../02_Services/17_Request-Transfer-Exit.html"><strong aria-hidden="true">2.16.</strong> Request Transfer Exit</a></li><li class="chapter-item expanded "><a href="../02_Services/18_IO-Control.html"><strong aria-hidden="true">2.17.</strong> I/O Control Id and Routine Control</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Diagnostic Trouble Codes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../03_DTC/01_Read-DTC-Information.html"><strong aria-hidden="true">3.1.</strong> Read DTC Information</a></li><li class="chapter-item expanded "><a href="../03_DTC/02_Clear-DTC-Information.html"><strong aria-hidden="true">3.2.</strong> Clear DTC Information</a></li><li class="chapter-item expanded "><a href="../03_DTC/02_Negative-Response-Codes.html"><strong aria-hidden="true">3.3.</strong> Negative Response Codes</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> CAPL</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.1.</strong> ...</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.2.</strong> ...</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Q&A</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.</strong> ...</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.2.</strong> ...</a></li></ol></li><li class="chapter-item expanded "><a href="../06_Glossary/Glossary.html"><strong aria-hidden="true">6.</strong> Glossary</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="control-dtc-setting"><a class="header" href="#control-dtc-setting">Control DTC Setting</a></h1>
+<p><strong>Introduction</strong></p>
+<p>The Control DTC Setting (0x85) service plays a pivotal role in the diagnostic ecosystem, offering testers the capability to manage Diagnostic Trouble Codes (DTCs) status bits within an Electronic Control Unit (ECU). By wielding this service, testers gain the power to suspend or resume the updating of DTC status bits, thus exerting precise control over diagnostic procedures. Mastery of this service is indispensable for optimizing diagnostics and maintenance workflows.</p>
+<p><strong>Purpose</strong></p>
+<p>The primary objective of the Control DTC Setting service is to empower testers with the ability to halt or recommence the setting of DTC status bits within the ECU. This control over the update process ensures that diagnostic operations unfold with precision, enhancing the accuracy of fault detection mechanisms.</p>
+<p><strong>Sub-functions</strong></p>
+<p>The Control DTC Setting service encompasses two distinct sub-functions:</p>
+<ol>
+<li><strong>On (0x01):</strong> This sub-function commands the ECU to resume updating trouble code status bits in the server's memory.</li>
+<li><strong>Off (0x02):</strong> Conversely, this sub-function directs the ECU to cease updating trouble code status bits in the server's memory.</li>
+</ol>
+<p><strong>Request Frame</strong></p>
+<p>When initiating a request to control DTC setting, the following frame structure is adhered to:</p>
+<ol>
+<li><strong>Service Id:</strong> This field delineates the service identifier (0x85).</li>
+<li><strong>Sub-function:</strong> Signifying the type of DTC setting operation to be executed (Resume or Stop).</li>
+<li><strong>DTC Setting Control Option Record:</strong> This optional data payload allows the tester to specify particular DTCs to be toggled on or off.</li>
+</ol>
+<p><strong>Positive Response Frame</strong></p>
+<p>Upon successful execution of the request, the ECU dispatches a positive response comprising:</p>
+<ol>
+<li><strong>Service Id:</strong> Identifying the service (0x85).</li>
+<li><strong>Sub-function:</strong> Validating the type of DTC setting operation executed (Resume or Stop).</li>
+<li><strong>DTC Setting Control Option Record:</strong> Furnishing optional intelligence regarding the controlled DTCs.</li>
+</ol>
+<p><strong>Negative Response Frame</strong></p>
+<p>Should the requested operation be unfeasible, the ECU issues a negative response, inclusive of:</p>
+<ol>
+<li><strong>Negative Response (7F):</strong> Indicating a negative response.</li>
+<li><strong>Service Id:</strong> Specifying the service (0x85).</li>
+<li><strong>NRC Code:</strong> Detailing the rationale behind the rejection or failure.</li>
+</ol>
+<p><strong>Circumstances for Resume Operation</strong></p>
+<p>The resumption of setting trouble codes into the server's memory may occur under the following circumstances:</p>
+<ol>
+<li><strong>Sub-function (DTC Setting Type: Resume):</strong> Triggered when the tester solicits a resume operation.</li>
+<li><strong>ECU Reset:</strong> Following an ECU reset, the setting of trouble codes may automatically resume as part of the initialization process.</li>
+<li><strong>Session Transition:</strong> In scenarios where the session transition does not accommodate service (0x85), the ECU may autonomously resume DTC setting.</li>
+<li><strong>Clear DTC Information:</strong> The act of clearing DTC information might serve as a catalyst for the resumption of trouble code setting, especially if previously suspended.</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../02_Services/01_Diagnostic-Sessions-Control.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../02_Services/03_ECU-Reset.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../02_Services/01_Diagnostic-Sessions-Control.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../02_Services/03_ECU-Reset.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

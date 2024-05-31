@@ -1,0 +1,501 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Terms</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Unified Diagnostic Services</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../01_UDS/01_Introduction.html"><strong aria-hidden="true">1.1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../01_UDS/02_Terms.html" class="active"><strong aria-hidden="true">1.2.</strong> Terms</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Services</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../02_Services/01_Diagnostic-Sessions-Control.html"><strong aria-hidden="true">2.1.</strong> Diagnostic Session Control</a></li><li class="chapter-item expanded "><a href="../02_Services/02_Control-DTC-Settings.html"><strong aria-hidden="true">2.2.</strong> Control DTC Settings</a></li><li class="chapter-item expanded "><a href="../02_Services/03_ECU-Reset.html"><strong aria-hidden="true">2.3.</strong> ECU Reset</a></li><li class="chapter-item expanded "><a href="../02_Services/04_Security-Access.html"><strong aria-hidden="true">2.4.</strong> Security Access</a></li><li class="chapter-item expanded "><a href="../02_Services/05_Read-Data-by-Identifier.html"><strong aria-hidden="true">2.5.</strong> Read Data By Identifier</a></li><li class="chapter-item expanded "><a href="../02_Services/06_Write-Data-by-Identifier.html"><strong aria-hidden="true">2.6.</strong> Write Data By Identifier</a></li><li class="chapter-item expanded "><a href="../02_Services/07_Read-Memory-by-Address.html"><strong aria-hidden="true">2.7.</strong> Read Memory by Address</a></li><li class="chapter-item expanded "><a href="../02_Services/08_Write-Memory-by-Address.html"><strong aria-hidden="true">2.8.</strong> Write Memory By Address</a></li><li class="chapter-item expanded "><a href="../02_Services/10_Tester-Present.html"><strong aria-hidden="true">2.9.</strong> Tester Present</a></li><li class="chapter-item expanded "><a href="../02_Services/11_Communication-Control.html"><strong aria-hidden="true">2.10.</strong> Communication Control</a></li><li class="chapter-item expanded "><a href="../02_Services/12_Read-Scaling-Data-by-Identifier.html"><strong aria-hidden="true">2.11.</strong> Read Scaling Data By Identifier</a></li><li class="chapter-item expanded "><a href="../02_Services/13_Request-File-Transfer.html"><strong aria-hidden="true">2.12.</strong> Request File Transfer</a></li><li class="chapter-item expanded "><a href="../02_Services/14_Request-Download.html"><strong aria-hidden="true">2.13.</strong> Request Download</a></li><li class="chapter-item expanded "><a href="../02_Services/15_Request-Upload.html"><strong aria-hidden="true">2.14.</strong> Request Upload</a></li><li class="chapter-item expanded "><a href="../02_Services/16_Request-Data-Transfer.html"><strong aria-hidden="true">2.15.</strong> Request Data Transfer</a></li><li class="chapter-item expanded "><a href="../02_Services/17_Request-Transfer-Exit.html"><strong aria-hidden="true">2.16.</strong> Request Transfer Exit</a></li><li class="chapter-item expanded "><a href="../02_Services/18_IO-Control.html"><strong aria-hidden="true">2.17.</strong> I/O Control Id and Routine Control</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Diagnostic Trouble Codes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../03_DTC/01_Read-DTC-Information.html"><strong aria-hidden="true">3.1.</strong> Read DTC Information</a></li><li class="chapter-item expanded "><a href="../03_DTC/02_Clear-DTC-Information.html"><strong aria-hidden="true">3.2.</strong> Clear DTC Information</a></li><li class="chapter-item expanded "><a href="../03_DTC/02_Negative-Response-Codes.html"><strong aria-hidden="true">3.3.</strong> Negative Response Codes</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> CAPL</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.1.</strong> ...</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.2.</strong> ...</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Q&A</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.</strong> ...</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.2.</strong> ...</a></li></ol></li><li class="chapter-item expanded "><a href="../06_Glossary/Glossary.html"><strong aria-hidden="true">6.</strong> Glossary</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="unified-diagnostic-services-uds"><a class="header" href="#unified-diagnostic-services-uds">Unified Diagnostic Services (UDS)</a></h1>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<p>Welcome to the detailed course on Unified Diagnostics Service (UDS). This session will provide an in-depth understanding of UDS, its importance in modern vehicle diagnostics, and how it functions.</p>
+<h2 id="what-is-unified-diagnostic-services-uds"><a class="header" href="#what-is-unified-diagnostic-services-uds">What is Unified Diagnostic Services (UDS)?</a></h2>
+<p>Unified Diagnostic Services (UDS) is a standardized communication protocol defined by the ISO 14229 standard. It is used for diagnosing and reprogramming automotive ECUs (Electronic Control Units). UDS standardizes the communication between diagnostic tools and ECUs, ensuring consistent and accurate diagnostic processes.</p>
+<h2 id="importance-of-uds"><a class="header" href="#importance-of-uds">Importance of UDS</a></h2>
+<ol>
+<li><strong>Standardization:</strong>
+<ul>
+<li>UDS provides a uniform protocol that all vehicle manufacturers and diagnostic tool providers follow, ensuring compatibility and reliability.</li>
+</ul>
+</li>
+<li><strong>Accuracy:</strong>
+<ul>
+<li>Allows precise identification of issues and their root causes.</li>
+</ul>
+</li>
+<li><strong>Safety:</strong>
+<ul>
+<li>Ensures that diagnostic procedures do not interfere with the vehicle's normal operations, enhancing safety.</li>
+</ul>
+</li>
+<li><strong>Efficiency:</strong>
+<ul>
+<li>Reduces diagnostic time and increases the efficiency of repair and maintenance processes.</li>
+</ul>
+</li>
+</ol>
+<h2 id="uds-communication-model"><a class="header" href="#uds-communication-model">UDS Communication Model</a></h2>
+<p>The UDS communication model involves a client-server architecture:</p>
+<ul>
+<li><strong>Client (Tester):</strong>
+<ul>
+<li>The diagnostic tool or software that sends requests to the ECU.</li>
+</ul>
+</li>
+<li><strong>Server (ECU):</strong>
+<ul>
+<li>The vehicle’s control unit that receives requests and sends responses.</li>
+</ul>
+</li>
+</ul>
+<h2 id="uds-services"><a class="header" href="#uds-services">UDS Services</a></h2>
+<p>UDS defines a range of diagnostic services, each identified by a unique Service ID. These services are categorized based on their functionality:</p>
+<ol>
+<li>
+<p><strong>Diagnostic and Communication Management (Service IDs: 0x10 - 0x1F):</strong></p>
+<ul>
+<li><strong>0x10: Diagnostic Session Control</strong>
+<ul>
+<li>Initiates a diagnostic session in the ECU.</li>
+</ul>
+</li>
+<li><strong>0x11: ECU Reset</strong>
+<ul>
+<li>Resets the ECU.</li>
+</ul>
+</li>
+<li><strong>0x14: Clear Diagnostic Information</strong>
+<ul>
+<li>Clears stored diagnostic trouble codes (DTCs).</li>
+</ul>
+</li>
+<li><strong>0x19: Read DTC Information</strong>
+<ul>
+<li>Reads diagnostic trouble codes.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Transmission (Service IDs: 0x20 - 0x3F):</strong></p>
+<ul>
+<li><strong>0x22: Read Data by Identifier</strong>
+<ul>
+<li>Reads data from the ECU based on a specific identifier.</li>
+</ul>
+</li>
+<li><strong>0x23: Read Memory by Address</strong>
+<ul>
+<li>Reads data from a specified memory address.</li>
+</ul>
+</li>
+<li><strong>0x24: Read Scaling Data by Identifier</strong>
+<ul>
+<li>Reads scaling data for specified parameters.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Stored Data Transmission (Service IDs: 0x40 - 0x5F):</strong></p>
+<ul>
+<li><strong>0x2A: Read Data by Periodic Identifier</strong>
+<ul>
+<li>Periodically reads data from the ECU.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Input/Output Control (Service IDs: 0x60 - 0x7F):</strong></p>
+<ul>
+<li><strong>0x2C: Dynamically Define Data Identifier</strong>
+<ul>
+<li>Defines custom data identifiers for specific diagnostic purposes.</li>
+</ul>
+</li>
+<li><strong>0x2E: Write Data by Identifier</strong>
+<ul>
+<li>Writes data to the ECU based on a specific identifier.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Remote Activation of Routine (Service IDs: 0x80 - 0x9F):</strong></p>
+<ul>
+<li><strong>0x31: Routine Control</strong>
+<ul>
+<li>Controls routines in the ECU, such as self-tests or calibrations.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Upload/Download (Service IDs: 0xA0 - 0xBF):</strong></p>
+<ul>
+<li><strong>0x34: Request Download</strong>
+<ul>
+<li>Initiates a download of new data or software to the ECU.</li>
+</ul>
+</li>
+<li><strong>0x35: Request Upload</strong>
+<ul>
+<li>Initiates an upload of data from the ECU.</li>
+</ul>
+</li>
+<li><strong>0x36: Transfer Data</strong>
+<ul>
+<li>Transfers data during an upload or download process.</li>
+</ul>
+</li>
+<li><strong>0x37: Request Transfer Exit</strong>
+<ul>
+<li>Concludes the data transfer process.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="uds-service-structure"><a class="header" href="#uds-service-structure">UDS Service Structure</a></h2>
+<p>Each UDS service request consists of:</p>
+<ol>
+<li><strong>Service ID:</strong>
+<ul>
+<li>A unique identifier for the service (e.g., 0x10 for Diagnostic Session Control).</li>
+</ul>
+</li>
+<li><strong>Sub-Function:</strong>
+<ul>
+<li>Specifies the particular function or operation within the service.</li>
+</ul>
+</li>
+<li><strong>Data Parameters:</strong>
+<ul>
+<li>Additional data required for the service request.</li>
+</ul>
+</li>
+</ol>
+<p>For example, a request to read data by identifier (Service ID 0x22) may look like this:</p>
+<ul>
+<li><strong>Request:</strong> 0x22 0xF1 0x90
+<ul>
+<li>0x22: Service ID for Read Data by Identifier.</li>
+<li>0xF1 0x90: Identifier for the specific data to be read.</li>
+</ul>
+</li>
+</ul>
+<h2 id="example-diagnostic-session-control-service-id-0x10"><a class="header" href="#example-diagnostic-session-control-service-id-0x10">Example: Diagnostic Session Control (Service ID: 0x10)</a></h2>
+<ol>
+<li><strong>Start Diagnostic Session:</strong>
+<ul>
+<li><strong>Request:</strong> 0x10 0x01
+<ul>
+<li>0x10: Service ID for Diagnostic Session Control.</li>
+<li>0x01: Sub-function to start the default diagnostic session.</li>
+</ul>
+</li>
+<li><strong>Response:</strong> 0x50 0x01
+<ul>
+<li>0x50: Positive response for Diagnostic Session Control.</li>
+<li>0x01: Echoes the sub-function.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="example-reading-dtc-information-service-id-0x19"><a class="header" href="#example-reading-dtc-information-service-id-0x19">Example: Reading DTC Information (Service ID: 0x19)</a></h2>
+<ol>
+<li><strong>Read All DTCs:</strong>
+<ul>
+<li><strong>Request:</strong> 0x19 0x02
+<ul>
+<li>0x19: Service ID for Read DTC Information.</li>
+<li>0x02: Sub-function to read all DTCs.</li>
+</ul>
+</li>
+<li><strong>Response:</strong> 0x59 0x02 [DTC Data]
+<ul>
+<li>0x59: Positive response for Read DTC Information.</li>
+<li>0x02: Echoes the sub-function.</li>
+<li>[DTC Data]: List of DTCs retrieved from the ECU.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="error-handling-in-uds"><a class="header" href="#error-handling-in-uds">Error Handling in UDS</a></h2>
+<p>UDS uses Negative Response Codes (NRCs) to indicate errors or issues with requests. Common NRCs include:</p>
+<ul>
+<li><strong>0x11: Service Not Supported</strong>
+<ul>
+<li>The requested service is not supported by the ECU.</li>
+</ul>
+</li>
+<li><strong>0x13: Incorrect Message Length or Invalid Format</strong>
+<ul>
+<li>The request message length or format is incorrect.</li>
+</ul>
+</li>
+<li><strong>0x22: Conditions Not Correct</strong>
+<ul>
+<li>The ECU conditions are not suitable for the requested service.</li>
+</ul>
+</li>
+<li><strong>0x31: Request Out of Range</strong>
+<ul>
+<li>The request is out of the allowable range.</li>
+</ul>
+</li>
+</ul>
+<h2 id="practical-application-of-uds"><a class="header" href="#practical-application-of-uds">Practical Application of UDS</a></h2>
+<p>UDS is crucial for modern automotive diagnostics and maintenance. Technicians use UDS-compatible diagnostic tools to:</p>
+<ol>
+<li><strong>Identify Issues:</strong>
+<ul>
+<li>Retrieve DTCs and understand the problems within various ECUs.</li>
+</ul>
+</li>
+<li><strong>Perform Repairs:</strong>
+<ul>
+<li>Use the diagnostic data to repair or replace faulty components.</li>
+</ul>
+</li>
+<li><strong>Ensure Safety:</strong>
+<ul>
+<li>Verify that safety-critical systems like airbags and braking systems are functioning correctly.</li>
+</ul>
+</li>
+<li><strong>Update Software:</strong>
+<ul>
+<li>Flash new software or update existing software in the ECUs.</li>
+</ul>
+</li>
+<li><strong>Maintain Performance:</strong>
+<ul>
+<li>Perform routine checks and calibrations to maintain vehicle performance.</li>
+</ul>
+</li>
+</ol>
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
+<p>Unified Diagnostic Services (UDS) represents a standardized approach to vehicle diagnostics, enabling precise, efficient, and safe maintenance of modern vehicles. By understanding and applying UDS protocols, technicians can ensure the reliability and performance of automotive systems.</p>
+<p>In the following sessions, we will explore each UDS service in detail, provide practical examples, and discuss common use cases in vehicle diagnostics. Stay tuned and feel free to leave any questions or comments for further clarification. See you in the next video!</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../01_UDS/01_Introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../02_Services/01_Diagnostic-Sessions-Control.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../01_UDS/01_Introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../02_Services/01_Diagnostic-Sessions-Control.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
