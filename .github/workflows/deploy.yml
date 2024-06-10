@@ -20,10 +20,10 @@ jobs:
           cargo install mdbook
 
       - name: Build the book
-        run: mdbook build mdBook  # is your book directory
+        run: mdbook build docs  # is your book directory
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          publish_dir: ./mdBook/book  # Directory where mdBook outputs the built book
+          publish_dir: ./docs/book  # Directory where mdBook outputs the built book

@@ -1,0 +1,48 @@
+// Example CAPL Script
+
+// Define the message that will be sent
+message 0x100 Message1 {
+  byte Data[8];
+}
+
+// Variable to hold the timer
+variables {
+  msTimer sendTimer; // Timer to trigger message sending
+}
+
+// Initialization block
+on start {
+  // Initialize the timer to trigger every 1000ms (1 second)
+  setTimer(sendTimer, 1000);
+}
+
+// Timer event block
+on timer sendTimer {
+  // Prepare the data to be sent
+  Message1.Data[0] = 0x01;
+  Message1.Data[1] = 0x02;
+  Message1.Data[2] = 0x03;
+  Message1.Data[3] = 0x04;
+  Message1.Data[4] = 0x05;
+  Message1.Data[5] = 0x06;
+  Message1.Data[6] = 0x07;
+  Message1.Data[7] = 0x08;
+
+  // Send the message
+  output(Message1);
+
+  // Restart the timer for the next interval
+  setTimer(sendTimer, 1000);
+}
+
+// Message receive event block
+on message 0x200 {
+  // Print the received message data to the output window
+  write("Received message: %02X %02X %02X %02X %02X %02X %02X %02X", this.Data[0], this.Data[1], this.Data[2], this.Data[3], this.Data[4], this.Data[5], this.Data[6], this.Data[7]);
+}
+
+// Error frame event block
+on errorFrame {
+  // Print an error message to the output window
+  write("Error frame detected on the CAN bus");
+}
